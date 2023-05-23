@@ -51,7 +51,10 @@ export default function Menu({ navItems, button }: MenuProps) {
             {navItems?.map((item) => <NavItem item={item} />)}
             {button?.label && button.href && (
               <li class="mt-[15px]">
-                <Button href={button?.href}>
+                <Button
+                  href={button?.href}
+                  class="text-black w-full capitalize border-1 bg-transparent cursor-pointer border-black rounded-[48px] px-[30px] py-2.5 flex justify-center text-center text-sm font-medium tracking-[0.25px] leading-[170%] transition-colors duration-300 ease hover:bg-black hover:text-white lg:px-[34px] lg:py-[12px]"
+                >
                   {button?.label}
                 </Button>
               </li>

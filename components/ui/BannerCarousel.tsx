@@ -66,6 +66,7 @@ function Buttons() {
             width={18}
             height={18}
             class="group-hover:filter group-hover:invert transition-colors rotate-180"
+            alt="Arrow Right"
           />
         </Slider.PrevButton>
       </div>
@@ -76,6 +77,7 @@ function Buttons() {
             width={18}
             height={18}
             class="group-hover:filter group-hover:invert transition-colors"
+            alt="Arrow Right"
           />
         </Slider.NextButton>
       </div>
