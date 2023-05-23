@@ -29,14 +29,14 @@ function BannerItem({ card }: { card: CardProps }) {
   const { image, alt, content, author } = card;
 
   return (
-    <div class="pt-[60px] pb-[120px] flex flex-col gap-[50px] md:(flex-row gap-[30px]) lg:(gap-[50px])">
+    <div class="pt-[60px] pb-[120px] flex flex-col gap-[50px] md:flex-row md:gap-[30px] lg:gap-[50px]">
       <Image
-        class="md:(max-h-[300px] min-h-[300px] max-w-[250%] max-w-[250px]) lg:(max-h-[540px] min-h-[540px] max-w-[460%] max-w-[460px])"
+        class="w-full md:max-h-[300px] md:min-h-[300px]  md:max-w-[250px] lg:max-h-[540px] lg:min-h-[540px] lg:max-w-[460px]"
         src={image}
         alt={alt}
         width={830}
       />
-      <div class="md:(mt-[40px] mb-[10px])">
+      <div class="md:mt-[40px] md:mb-[10px]">
         <Image
           src="https://assets.website-files.com/63dff3904fd49bed9c9c3c19/63f730f013b5f15585b7baa0_ic-quote.svg"
           alt="Blockquote caracteres"
@@ -44,7 +44,7 @@ function BannerItem({ card }: { card: CardProps }) {
         />
         <div>
           {content && (
-            <blockquote class="text-[22px] leading-[170%] font-medium pt-[6px] mb-[20px] md:text-[18px] lg:(text-[28px])">
+            <blockquote class="text-[22px] leading-[170%] font-medium pt-[6px] mb-[20px] md:text-[18px] lg:text-[28px]">
               {content}
             </blockquote>
           )}
@@ -57,9 +57,9 @@ function BannerItem({ card }: { card: CardProps }) {
 
 function Buttons() {
   return (
-    <>
-      <div class="flex items-center justify-center z-10 col-start-1 row-start-2">
-        <Slider.PrevButton class="btn btn-circle glass">
+    <div class="absolute bottom-[30px] right-[20px] flex gap-[10px] md:bottom-[120px]">
+      <div class="flex items-center justify-center z-10 col-start-1 row-start-2 ">
+        <Slider.PrevButton class="btn btn-circle bg-transparent w-[40px] h-[40px] min-h-[40px]">
           <Icon
             class="text-base-100"
             size={20}
@@ -68,17 +68,17 @@ function Buttons() {
           />
         </Slider.PrevButton>
       </div>
-      <div class="flex items-center justify-center z-10 col-start-3 row-start-2">
-        <Slider.NextButton class="btn btn-circle glass">
+      <div class="flex items-center justify-center z-10 col-start-3 row-start-2 ">
+        <Slider.NextButton class="btn btn-circle bg-transparent w-[40px] h-[40px] min-h-[40px]">
           <Icon
             class="text-base-100"
-            size={20}
+            size={18}
             id="ChevronRight"
-            strokeWidth={3}
+            strokeWidth={2}
           />
         </Slider.NextButton>
       </div>
-    </>
+    </div>
   );
 }
 
@@ -88,7 +88,7 @@ function BannerCarousel({ images, preload, interval }: Props) {
   return (
     <div
       id={id}
-      class="grid grid-cols-[48px_1fr_48px] sm:grid-cols-[120px_1fr_120px] grid-rows-[1fr_48px_1fr_64px] pt-[60px] pb-[120px] px-[20px] mb-[80px] bg-[#d9e3db] md:(mb-[100px]) lg:(mb-[150px])"
+      class="relative grid grid-cols-[48px_1fr_48px] sm:grid-cols-[120px_1fr_120px] grid-rows-[1fr_48px_1fr_64px] px-[20px] mb-[80px] bg-[#d9e3db] md:(mb-[100px]) lg:(mb-[150px])"
     >
       <Slider class="carousel carousel-center w-full col-span-full row-span-full scrollbar-none gap-6">
         {images?.map((image, index) => (

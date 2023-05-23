@@ -25,20 +25,20 @@ export default function Footer({
 }: Props) {
   return (
     <footer class="bg-[#0a0045]">
-      <div class="max-w-[1336px] mx-auto px-5 pb-[50px] lg:(py-[30px])">
-        <div class="flex flex-col gap-[40px] py-[50px] md:(flex-row gap-[50px])">
-          <div class="lg:(flex-1)">
-            <div class="lg:(w-[100%] max-w-[350px])">
+      <div class="max-w-[1336px] mx-auto px-5 pb-[50px] lg:py-[30px]">
+        <div class="flex flex-col gap-[40px] py-[50px] md:flex-row md:gap-[50px]">
+          <div class="lg:flex-1">
+            <div class="lg:w-[100%] lg:max-w-[350px]">
               <label
                 htmlFor="newsletter"
-                class="text-white block mb-2.5 font-medium  lg:(mb-5 text-[20px])"
+                class="text-white block mb-2.5 font-medium  lg:mb-5 lg:text-[20px]"
               >
                 {titleNewsletter}
               </label>
 
               <div class="relative">
                 <input
-                  class="w-full text-white text-sm border-b-1 border-white bg-transparent h-[40px] placeholder-white"
+                  class="w-full text-white text-sm border-b-[1px] border-white bg-transparent h-[40px] placeholder-white"
                   type="text"
                   placeholder={placeholderNewsletter}
                 />
@@ -52,16 +52,16 @@ export default function Footer({
             </div>
           </div>
 
-          <div class="flex justify-between gap-[20px] w-full md:(w-[fit-content] justify-between)">
+          <div class="flex justify-between gap-[20px] w-full md:w-[fit-content] md:justify-between">
             {columnLinks?.map((column) => (
               <div class="w-[fit-content]">
-                <p class="text-white block mb-2.5 font-medium lg:(text-[20px])">
+                <p class="text-white block mb-2.5 font-medium lg:text-[20px]">
                   {column.titleLinks}
                 </p>
 
                 {column.link?.map((link) => (
                   <a
-                    class="text-white block py-[5px] text-sm lg:(text-[16px] leading-[170%])"
+                    class="text-white block py-[5px] text-sm lg:text-[16px] lg:leading-[170%]"
                     href={link.href}
                   >
                     {link.text}
@@ -71,12 +71,12 @@ export default function Footer({
             ))}
           </div>
 
-          <div class="lg:(max-w-[215px])">
-            <p class="text-white text-sm block mb-2.5 leading-[150%] lg:(text-[16px] leading-[170%])">
+          <div class="lg:max-w-[215px]">
+            <p class="text-white text-sm block mb-2.5 leading-[150%] lg:text-[16px] lg:leading-[170%]">
               {location}
             </p>
             <a
-              class="text-white text-sm lg:(text-[16px] leading-[170%] py-[5px])"
+              class="text-white text-sm lg:text-[16px] lg:leading-[170%] lg:py-[5px]"
               href={email}
             >
               {email}

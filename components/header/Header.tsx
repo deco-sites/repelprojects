@@ -23,8 +23,8 @@ export interface Props {
 
 export default function Header({ logo, navItems, button }: Props) {
   return (
-    <header class="w-full  flex items-center bg-white border-b-1 py-[10px] border-black lg:(py-[15px])">
-      <nav class="w-full flex items-center justify-between px-5 h-[47px] box-border max-w-[1336px] mx-auto lg:(h-[50px])">
+    <header class="w-full flex items-center bg-white border-b-[1px] border-black py-[10px] lg:py-[15px]">
+      <nav class="w-full flex items-center justify-between px-5 h-[47px] box-border max-w-[1336px] mx-auto lg:h-[50px]">
         {logo?.src && (
           <Image
             src={logo.src}
