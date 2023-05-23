@@ -1,77 +1,42 @@
-import Modals from "$store/islands/HeaderModals.tsx";
-import type { Image } from "deco-sites/std/components/types.ts";
-import type { EditableProps as SearchbarProps } from "$store/components/search/Searchbar.tsx";
-import type { LoaderReturnType } from "$live/types.ts";
-import type { Product, Suggestion } from "deco-sites/std/commerce/types.ts";
-
-import Alert from "./Alert.tsx";
-import Navbar from "./Navbar.tsx";
-import { headerHeight } from "./constants.ts";
-
-export interface NavItem {
-  label: string;
-  href: string;
-  children?: Array<{
-    label: string;
-    href: string;
-    children?: Array<{
-      label: string;
-      href: string;
-    }>;
-  }>;
-  image?: {
-    src?: Image;
-    alt?: string;
-  };
-}
+import type { Image as ImageProps } from "deco-sites/std/components/types.ts";
+import { NavItemProps } from "deco-sites/repelprojects/components/header/NavItem.tsx";
+import Image from "deco-sites/std/components/Image.tsx";
+import Menu from "deco-sites/repelprojects/components/header/Menu.tsx";
 
 export interface Props {
-  alerts: string[];
-  /** @title Search Bar */
-  searchbar?: SearchbarProps;
+  logo?: {
+    src?: ImageProps;
+    alt?: string;
+  };
   /**
    * @title Navigation items
    * @description Navigation items used both on mobile and desktop menus
    */
-  navItems?: NavItem[];
+  navItems?: NavItemProps[];
 
   /**
-   * @title Product suggestions
-   * @description Product suggestions displayed on search
+   * @title Highlight Link
+   * @description Last link in header with highlight
    */
-  products?: LoaderReturnType<Product[] | null>;
-
-  /**
-   * @title Enable Top Search terms
-   */
-  suggestions?: LoaderReturnType<Suggestion | null>;
+  button?: NavItemProps;
 }
 
-function Header(
-  {
-    alerts,
-    searchbar: _searchbar,
-    products,
-    navItems = [],
-    suggestions,
-  }: Props,
-) {
-  const searchbar = { ..._searchbar, products, suggestions };
+export default function Header({ logo, navItems, button }: Props) {
   return (
-    <>
-      <header style={{ height: headerHeight }}>
-        <div class="bg-base-100 fixed w-full z-50">
-          <Alert alerts={alerts} />
-          <Navbar items={navItems} searchbar={searchbar} />
-        </div>
+    <header class="w-full  flex items-center bg-white border-b-1 py-[10px] border-black lg:(py-[15px])">
+      <nav class="w-full flex items-center justify-between px-5 h-[47px] box-border max-w-[1336px] mx-auto lg:(h-[50px])">
+        {logo?.src && (
+          <Image
+            src={logo.src}
+            alt={logo.alt}
+            height={21}
+            width={94}
+            class="mt-[1px] align-middle inline-block"
+          />
+        )}
 
-        <Modals
-          menu={{ items: navItems }}
-          searchbar={searchbar}
-        />
-      </header>
-    </>
+        <Menu navItems={navItems} button={button} />
+      </nav>
+    </header>
   );
 }
-
-export default Header;

@@ -1,177 +1,94 @@
-import Icon, { AvailableIcons } from "$store/components/ui/Icon.tsx";
-import Newsletter from "$store/islands/Newsletter.tsx";
-import type { ComponentChildren } from "preact";
-
-export type IconItem = { icon: AvailableIcons };
-export type StringItem = {
-  label: string;
-  href: string;
-};
-
-export type Item = StringItem | IconItem;
-
-export type Section = {
-  label: string;
-  children: Item[];
-};
-
-const isIcon = (item: Item): item is IconItem =>
-  // deno-lint-ignore no-explicit-any
-  typeof (item as any)?.icon === "string";
-
-function SectionItem({ item }: { item: Item }) {
-  return (
-    <span class="text-primary-content">
-      {isIcon(item)
-        ? (
-          <div class="border-base-100 border border-solid py-1.5 px-2.5">
-            <Icon
-              id={item.icon}
-              width={25}
-              height={20}
-              strokeWidth={0.01}
-            />
-          </div>
-        )
-        : (
-          <a href={item.href}>
-            {item.label}
-          </a>
-        )}
-    </span>
-  );
-}
-
-function FooterContainer(
-  { children, class: _class = "" }: {
-    class?: string;
-    children: ComponentChildren;
-  },
-) {
-  return <div class={`py-6 px-4 sm:py-12 sm:px-0 ${_class}`}>{children}</div>;
-}
-
 export interface Props {
-  sections?: Section[];
+  titleNewsletter?: string;
+  placeholderNewsletter?: string;
+  columnLinks?: {
+    titleLinks?: string;
+    link?: {
+      text: string;
+      href: string;
+    }[];
+  }[];
+  location?: string;
+  email?: string;
+  copyright?: string;
+  developerSite?: string;
 }
 
-function Footer({ sections = [] }: Props) {
+export default function Footer({
+  titleNewsletter,
+  placeholderNewsletter,
+  columnLinks,
+  location,
+  email,
+  copyright,
+  developerSite,
+}: Props) {
   return (
-    <footer class="w-full bg-primary flex flex-col divide-y divide-primary-content">
-      <div>
-        <div class="container w-full flex flex-col divide-y divide-primary-content">
-          <FooterContainer>
-            <Newsletter />
-          </FooterContainer>
-
-          <FooterContainer>
-            {/* Desktop view */}
-            <ul class="hidden sm:flex flex-row gap-20">
-              {sections.map((section) => (
-                <li>
-                  <div>
-                    <span class="font-medium text-xl text-primary-content">
-                      {section.label}
-                    </span>
-
-                    <ul
-                      class={`flex ${
-                        isIcon(section.children[0]) ? "flex-row" : "flex-col"
-                      } gap-2 pt-2 flex-wrap`}
-                    >
-                      {section.children.map((item) => (
-                        <li>
-                          <SectionItem item={item} />
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                </li>
-              ))}
-            </ul>
-
-            {/* Mobile view */}
-            <ul class="flex flex-col sm:hidden sm:flex-row gap-4">
-              {sections.map((section) => (
-                <li>
-                  <span class="text-primary-content">
-                    <details>
-                      <summary>
-                        {section.label}
-                      </summary>
-
-                      <ul
-                        class={`flex ${
-                          isIcon(section.children[0]) ? "flex-row" : "flex-col"
-                        } gap-2 px-2 pt-2`}
-                      >
-                        {section.children.map((item) => (
-                          <li>
-                            <SectionItem item={item} />
-                          </li>
-                        ))}
-                      </ul>
-                    </details>
-                  </span>
-                </li>
-              ))}
-            </ul>
-          </FooterContainer>
-        </div>
-      </div>
-
-      <div>
-        <div class="container w-full">
-          <FooterContainer class="flex justify-between w-full">
-            <span class="flex items-center gap-1 text-primary-content">
-              Powered by{" "}
-              <a
-                href="https://www.deco.cx"
-                aria-label="powered by https://www.deco.cx"
+    <footer class="bg-[#0a0045]">
+      <div class="max-w-[1336px] mx-auto px-5 pb-[50px] lg:(py-[30px])">
+        <div class="flex flex-col gap-[40px] py-[50px] md:(flex-row gap-[50px])">
+          <div class="lg:(flex-1)">
+            <div class="lg:(w-[100%] max-w-[350px])">
+              <label
+                htmlFor="newsletter"
+                class="text-white block mb-2.5 font-medium  lg:(mb-5 text-[20px])"
               >
-                <Icon id="Deco" height={20} width={60} strokeWidth={0.01} />
-              </a>
-            </span>
+                {titleNewsletter}
+              </label>
 
-            <ul class="flex items-center justify-center gap-2">
-              <li>
-                <a
-                  href="https://www.instagram.com/deco.cx"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="Instagram logo"
-                >
-                  <Icon
-                    class="text-primary-content"
-                    width={32}
-                    height={32}
-                    id="Instagram"
-                    strokeWidth={1}
-                  />
-                </a>
-              </li>
-              <li>
-                <a
-                  href="http://www.deco.cx/discord"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="Discord logo"
-                >
-                  <Icon
-                    class="text-primary-content"
-                    width={32}
-                    height={32}
-                    id="Discord"
-                    strokeWidth={5}
-                  />
-                </a>
-              </li>
-            </ul>
-          </FooterContainer>
+              <div class="relative">
+                <input
+                  class="w-full text-white text-sm border-b-1 border-white bg-transparent h-[40px] placeholder-white"
+                  type="text"
+                  placeholder={placeholderNewsletter}
+                />
+
+                <img
+                  src="https://assets.website-files.com/63dff3904fd49bed9c9c3c19/63f57732a315606fe5a54faf_ic-arrow.svg"
+                  class="absolute right-0 bottom-auto top-1/2 transform -translate-y-1/2"
+                  alt="Arrow right"
+                />
+              </div>
+            </div>
+          </div>
+
+          <div class="flex justify-between gap-[20px] w-full md:(w-[fit-content] justify-between)">
+            {columnLinks?.map((column) => (
+              <div class="w-[fit-content]">
+                <p class="text-white block mb-2.5 font-medium lg:(text-[20px])">
+                  {column.titleLinks}
+                </p>
+
+                {column.link?.map((link) => (
+                  <a
+                    class="text-white block py-[5px] text-sm lg:(text-[16px] leading-[170%])"
+                    href={link.href}
+                  >
+                    {link.text}
+                  </a>
+                ))}
+              </div>
+            ))}
+          </div>
+
+          <div class="lg:(max-w-[215px])">
+            <p class="text-white text-sm block mb-2.5 leading-[150%] lg:(text-[16px] leading-[170%])">
+              {location}
+            </p>
+            <a
+              class="text-white text-sm lg:(text-[16px] leading-[170%] py-[5px])"
+              href={email}
+            >
+              {email}
+            </a>
+          </div>
+        </div>
+
+        <div class="w-full flex justify-between">
+          <p class="text-white block py-[6px] text-sm">{copyright}</p>
+          <p class="text-white block py-[6px] text-sm">{developerSite}</p>
         </div>
       </div>
     </footer>
   );
 }
-
-export default Footer;
