@@ -45,6 +45,7 @@ export default function Projects({
             width={22}
             height={22}
             class="group-hover:filter group-hover:invert transition-colors"
+            alt="Arrow Right"
           />
         </Button>
       </div>

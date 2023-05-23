@@ -32,6 +32,7 @@ export default function BannerAd({ title, description, textButton }: Props) {
                 width={22}
                 height={22}
                 class="group-hover:filter group-hover:invert transition-colors"
+                alt="Arrow Right"
               />
             </Button>
           </div>
