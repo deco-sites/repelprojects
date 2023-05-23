@@ -31,7 +31,7 @@ export default function Header({ logo, navItems, button }: Props) {
             alt={logo.alt}
             height={21}
             width={94}
-            class="mt-[1px] align-middle inline-block"
+            class="mt-[1px] align-middle inline-block w-[94px] h-[21px]"
           />
         )}
 

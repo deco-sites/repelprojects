@@ -20,6 +20,7 @@ export default function Card({ card }: { card: CardProps }) {
           src={image}
           alt={alt}
           width={750}
+          sizes="(max-width: 750px) 50vw, 20vw"
           class="object-cover align-middle inline-block group-hover:scale-[1.1] transition-all ease-linear duration-[550ms] ease"
         />
 
