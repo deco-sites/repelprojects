@@ -61,7 +61,7 @@ export default function Footer({
 
                 {column.link?.map((link) => (
                   <a
-                    class="text-white block py-[5px] text-sm lg:text-[16px] lg:leading-[170%]"
+                    class="text-white block py-[5px] text-sm lg:text-[16px] lg:leading-[170%] hover:text-[#d9e3db] transition-colors"
                     href={link.href}
                   >
                     {link.text}

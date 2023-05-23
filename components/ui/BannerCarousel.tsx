@@ -36,6 +36,7 @@ function BannerItem({ card }: { card: CardProps }) {
         alt={alt}
         width={830}
       />
+
       <div class="md:mt-[40px] md:mb-[10px]">
         <Image
           src="https://assets.website-files.com/63dff3904fd49bed9c9c3c19/63f730f013b5f15585b7baa0_ic-quote.svg"
@@ -57,24 +58,24 @@ function BannerItem({ card }: { card: CardProps }) {
 
 function Buttons() {
   return (
-    <div class="absolute bottom-[30px] right-[20px] flex gap-[10px] md:bottom-[120px]">
+    <div class="absolute bottom-[30px] right-[20px] flex gap-[10px] md:bottom-[120px] md:right-[0px]">
       <div class="flex items-center justify-center z-10 col-start-1 row-start-2 ">
-        <Slider.PrevButton class="btn btn-circle bg-transparent w-[40px] h-[40px] min-h-[40px]">
-          <Icon
-            class="text-base-100"
-            size={20}
-            id="ChevronLeft"
-            strokeWidth={3}
+        <Slider.PrevButton class="rounded-full border-[1px] border-black flex items-center justify-center bg-transparent w-[40px] h-[40px] min-h-[40px] hover:opacity-50 transition-all">
+          <Image
+            src="https://assets.website-files.com/63dff3904fd49bed9c9c3c19/63f57bc9e975d1faa93be82a_ic-arrow.svg"
+            width={18}
+            height={18}
+            class="group-hover:filter group-hover:invert transition-colors rotate-180"
           />
         </Slider.PrevButton>
       </div>
       <div class="flex items-center justify-center z-10 col-start-3 row-start-2 ">
-        <Slider.NextButton class="btn btn-circle bg-transparent w-[40px] h-[40px] min-h-[40px]">
-          <Icon
-            class="text-base-100"
-            size={18}
-            id="ChevronRight"
-            strokeWidth={2}
+        <Slider.NextButton class="rounded-full border-[1px] border-black flex items-center justify-center bg-transparent w-[40px] h-[40px] min-h-[40px] hover:opacity-50 transition-all">
+          <Image
+            src="https://assets.website-files.com/63dff3904fd49bed9c9c3c19/63f57bc9e975d1faa93be82a_ic-arrow.svg"
+            width={18}
+            height={18}
+            class="group-hover:filter group-hover:invert transition-colors"
           />
         </Slider.NextButton>
       </div>
@@ -90,15 +91,14 @@ function BannerCarousel({ images, preload, interval }: Props) {
       id={id}
       class="relative grid grid-cols-[48px_1fr_48px] sm:grid-cols-[120px_1fr_120px] grid-rows-[1fr_48px_1fr_64px] px-[20px] mb-[80px] bg-[#d9e3db] md:(mb-[100px]) lg:(mb-[150px])"
     >
-      <Slider class="carousel carousel-center w-full col-span-full row-span-full scrollbar-none gap-6">
+      <Slider class=" relative carousel carousel-center w-full max-w-[1336px] mx-auto col-span-full row-span-full scrollbar-none gap-6">
         {images?.map((image, index) => (
           <Slider.Item index={index} class="carousel-item w-full">
             <BannerItem card={image} />
           </Slider.Item>
         ))}
+        <Buttons />
       </Slider>
-
-      <Buttons />
 
       <SliderJS rootId={id} interval={interval && interval * 1e3} infinite />
     </div>

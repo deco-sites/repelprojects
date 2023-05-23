@@ -7558,7 +7558,7 @@
       "required": [],
       "title": "OptionalColors"
     },
-    "ZGVjby1zaXRlcy9yZXBlbHByb2plY3RzL3NlY3Rpb25zL0Rlc2lnblN5c3RlbS50c3g=@5493b1ce32adc841795d73642dde6295&Colors": {
+    "ZGVjby1zaXRlcy9yZXBlbHByb2plY3RzL3NlY3Rpb25zL0Rlc2lnblN5c3RlbS50c3g=@3b75abb067d637887b4d704ea7add7ad&Colors": {
       "allOf": [
         {
           "$ref": "#/definitions/ZGVjby1zaXRlcy9yZXBlbHByb2plY3RzL3NlY3Rpb25zL0Rlc2lnblN5c3RlbS50c3g=@Colors"
@@ -7574,7 +7574,7 @@
           "required": []
         }
       ],
-      "title": "5493b1ce32adc841795d73642dde6295&Colors"
+      "title": "3b75abb067d637887b4d704ea7add7ad&Colors"
     },
     "ZGVjby1zaXRlcy9yZXBlbHByb2plY3RzL3NlY3Rpb25zL0Rlc2lnblN5c3RlbS50c3g=@Miscellaneous": {
       "type": "object",
@@ -7677,7 +7677,7 @@
       "type": "object",
       "properties": {
         "colors": {
-          "$ref": "#/definitions/ZGVjby1zaXRlcy9yZXBlbHByb2plY3RzL3NlY3Rpb25zL0Rlc2lnblN5c3RlbS50c3g=@5493b1ce32adc841795d73642dde6295&Colors",
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9yZXBlbHByb2plY3RzL3NlY3Rpb25zL0Rlc2lnblN5c3RlbS50c3g=@3b75abb067d637887b4d704ea7add7ad&Colors",
           "title": "Colors"
         },
         "miscellaneous": {
@@ -8914,7 +8914,7 @@
       ],
       "title": "WorkflowRef"
     },
-    "ZGVjby1jeC9saXZlL2FjdGlvbnMvd29ya2Zsb3dzL3N0YXJ0LnRz@211bd20d1b49d0cbca74cea6d940e680|WorkflowRef": {
+    "ZGVjby1jeC9saXZlL2FjdGlvbnMvd29ya2Zsb3dzL3N0YXJ0LnRz@WorkflowRef|ef52652399efcf028b1edca4cf80cc7a": {
       "anyOf": [
         {
           "$ref": "#/definitions/ZGVjby1jeC9saXZlL2FjdGlvbnMvd29ya2Zsb3dzL3N0YXJ0LnRz@WorkflowRef"
@@ -8932,13 +8932,13 @@
           ]
         }
       ],
-      "title": "211bd20d1b49d0cbca74cea6d940e680|WorkflowRef"
+      "title": "WorkflowRef|ef52652399efcf028b1edca4cf80cc7a"
     },
     "ZGVjby1jeC9saXZlL2FjdGlvbnMvd29ya2Zsb3dzL3N0YXJ0LnRz@Props": {
       "type": "object",
       "properties": {
         "workflow": {
-          "$ref": "#/definitions/ZGVjby1jeC9saXZlL2FjdGlvbnMvd29ya2Zsb3dzL3N0YXJ0LnRz@211bd20d1b49d0cbca74cea6d940e680|WorkflowRef",
+          "$ref": "#/definitions/ZGVjby1jeC9saXZlL2FjdGlvbnMvd29ya2Zsb3dzL3N0YXJ0LnRz@WorkflowRef|ef52652399efcf028b1edca4cf80cc7a",
           "title": "Workflow"
         },
         "id": {

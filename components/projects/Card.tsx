@@ -21,7 +21,7 @@ export default function Card({ card }: { card: CardProps }) {
           alt={alt}
           width={750}
           sizes="(max-width: 750px) 50vw, 20vw"
-          class="object-cover align-middle inline-block group-hover:scale-[1.1] transition-all ease-linear duration-[550ms] ease"
+          class="object-cover min-h-[200px] align-middle inline-block group-hover:scale-[1.1] transition-all ease-linear duration-[550ms] ease"
         />
 
         <div class="absolute right-0 bottom-0 w-[54px] h-[54px] flex items-center justify-center bg-white opacity-0 transition-all group-hover:opacity-100 group-hover:duration-[800ms]">

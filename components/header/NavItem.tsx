@@ -10,7 +10,7 @@ export default function NavItem({ item }: { item: NavItemProps }) {
     <li class="block">
       <a
         href={href}
-        class="block p-2.5 text-sm font-medium leading-[150%] font-sans tracking-[0.25px] lg:(py-[5px] px-[20px] mx-[5px])"
+        class="block p-2.5 text-sm font-medium leading-[150%] font-sans text-black tracking-[0.25px] lg:py-[5px] lg:px-[20px] lg:mx-[5px] hover:text-[#333] transition-colors"
       >
         {label}
       </a>

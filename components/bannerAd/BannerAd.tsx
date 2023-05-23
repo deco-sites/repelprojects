@@ -1,4 +1,5 @@
 import Button from "deco-sites/repelprojects/components/ui/Button.tsx";
+import Image from "deco-sites/std/components/Image.tsx";
 
 export interface Props {
   title?: string;
@@ -23,9 +24,15 @@ export default function BannerAd({ title, description, textButton }: Props) {
           <div class="flex justify-center">
             <Button
               href="#"
-              class="text-black capitalize border-1 bg-transparent cursor-pointer border-black rounded-[48px] px-[30px] py-2.5 flex justify-center text-center text-sm font-medium tracking-[0.25px] leading-[170%] transition-colors duration-300 ease hover:bg-black hover:text-white lg:px-[34px] lg:py-[12px]"
+              class="group text-black capitalize border-1 bg-transparent cursor-pointer border-black rounded-[48px] px-[30px] py-2.5 flex justify-center gap-[20px] text-center text-sm font-medium tracking-[0.25px] leading-[170%] transition-colors duration-300 ease hover:bg-black hover:text-white lg:px-[34px] lg:py-[12px] lg:pr-[16px]"
             >
               Contact us
+              <Image
+                src="https://assets.website-files.com/63dff3904fd49bed9c9c3c19/63f57bc9e975d1faa93be82a_ic-arrow.svg"
+                width={22}
+                height={22}
+                class="group-hover:filter group-hover:invert transition-colors"
+              />
             </Button>
           </div>
         )}
